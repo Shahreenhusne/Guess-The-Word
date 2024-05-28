@@ -1,0 +1,6 @@
+Drawing CSS Details:
+relative to the the root component 
+the const body value is the end of the relative div , that way right_arm has rigth as negative val and left_arm has rigth positive val. 
+
+{draw_body.slice(0,incorrectLettersLength)}
+draw the hangman body from array index 0 to <incorrectLettersLength. for example if incorrectLettersLength is 2 , then index follow would be 0,1 
