@@ -16,9 +16,9 @@
   }
 }
 
-body {
-  
-  background: #8F7A6E;
+body { 
+  background: linear-gradient(to bottom, #bdd1c5, #d3a29d, #9eaba2);
+  min-height: 100vh;
 }
 
 @layer utilities {

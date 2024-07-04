@@ -8,15 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      screens: {
+        mobile: "1100px",
       },
+
       gridTemplateColumns: {
         // Simple 16 column grid
-        '13': 'repeat(auto-fit, minmax(80px, 1fr))',
-      }
+        "13": "repeat(auto-fit, minmax(80px, 1fr))",
+      },
     },
   },
   plugins: [],

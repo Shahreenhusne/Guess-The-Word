@@ -7,20 +7,23 @@ type WordProps = {
 export default function Word ({wordToGuess, guessedLetters} : WordProps) {
     
    
-    return(
-        <>
+    return (
+      <>
         <div className="flex gap-1 font-bold uppercase font-mono text-7xl">
-         {wordToGuess.split("").map((letter, index) => (
-              <span className=" border-b-8 border-black">
-                <span>
-                   {letter}
-                </span>
-              </span>
-         ))}
+          {wordToGuess.split("").map((letter, index) => (
+            <div key={index} className="border-b-8 border-[#112d55]">
+              <div
+                className={` text-[#112d55] ${
+                  guessedLetters.includes(letter) ? "visible" : "hidden"
+                }`}
+              >
+                {letter}
+              </div>
+            </div>
+          ))}
         </div>
-        </>
-    )
+      </>
+    );
 }
 
-// className={`flex-1 text-center text-xl p-4 font-lato  cursor-pointer ${selectedBHK === option ? 'bg-gray-300' : ''}`}
 

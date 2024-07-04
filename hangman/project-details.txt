@@ -4,3 +4,8 @@ the const body value is the end of the relative div , that way right_arm has rig
 
 {draw_body.slice(0,incorrectLettersLength)}
 draw the hangman body from array index 0 to <incorrectLettersLength. for example if incorrectLettersLength is 2 , then index follow would be 0,1 
+
+
+Q:Reasons for wrapping addGuessLetterFun with useCallback() hook--------
+When you define a function inside a functional component, like addGuessLetterFun, it is recreated on every render. If this function is passed down to child components or used in useEffect dependencies without useCallback, it could lead to unnecessary re-renders of those components or re-execution of effects.
+By using useCallback, React memoizes the function instance. React will reuse the memoized function as long as its dependencies (in this case, guessedLetters) have not changed. This optimization reduces unnecessary re-renders and improves performance, especially in components that rely on props or state changes.

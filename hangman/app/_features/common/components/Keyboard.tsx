@@ -28,17 +28,38 @@ const keys =  [
     "z",
   ]
 
-
-export default function Keyboard () {
-    return (
-        <>
-        {/* grid-cols-13 is defined in tailwind.config */}
-        <div className=" grid grid-cols-13 gap-2">
-          {keys.map((key) => {
-            return  <div className=" w-[100%] border-2 border-[#292F36] rounded-lg text-3xl uppercase p-[1rem] font-bold text-neutral-800" key={key}>{key}</div>
-          })}
-        </div>
-        </>
-    )
+type KeyboardProps = {
+   activeLetter:string[]
+   inactiveLetters:string[]
+   addGuessLetter:(letter: string) => void
+}
+export default function Keyboard({
+  activeLetter,
+  inactiveLetters,
+  addGuessLetter,
+}: KeyboardProps) {
+  return (
+    <>
+      {/* grid-cols-13 is defined in tailwind.config */}
+      <div className=" grid grid-cols-13 gap-2">
+        {keys.map((key) => {
+          const isActive = activeLetter.includes(key)
+          const isInactive = inactiveLetters.includes(key);
+          return (
+            <button
+              className={`w-[100%] border-2 border-[#112d55] rounded-2xl text-3xl uppercase p-[1rem] font-bold text-[#112d55]   ${
+                isActive ? "bg-[#ac4b47]" : ""
+              } ${isInactive ? "opacity-50" : ""}`}
+              key={key}
+              onClick={() => addGuessLetter(key)}
+              disabled= {isActive || isInactive}
+            >
+              {key}
+            </button>
+          );
+        })}
+      </div>
+    </>
+  );
 }
 
