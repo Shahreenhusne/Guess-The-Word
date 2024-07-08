@@ -1,26 +1,26 @@
 //hangman head 
 const head = (
-  <div className=" w-[50px] h-[50px] rounded-[100%] border-4 border-[#bdd1c5] absolute top-[50px] right-[-22px]"></div>
+  <div className=" w-[50px] h-[50px] rounded-[100%] border-4 border-[#ac4b47] absolute top-[50px] right-[-22px]"></div>
 );
 //hangman body 
 const body = (
-  <div className=" w-[5px] h-[80px] bg-[#bdd1c5] absolute top-[100px] right-0"></div>
+  <div className=" w-[5px] h-[80px] bg-[#ac4b47] absolute top-[100px] right-0"></div>
 );
 //hangman right arm
 const right_arm = (
-  <div className=" w-[60px] h-[5px] absolute top-[110px] right-[-55px] bg-[#bdd1c5] rotate-[30deg] origin-bottom-left"></div>
+  <div className=" w-[60px] h-[5px] absolute top-[110px] right-[-55px] bg-[#ac4b47] rotate-[30deg] origin-bottom-left"></div>
 );
 //hangman left arm 
 const left_arm = (
-  <div className=" w-[60px] h-[5px] absolute top-[110px] right-0 bg-[#bdd1c5] rotate-[-30deg] origin-bottom-right"></div>
+  <div className=" w-[60px] h-[5px] absolute top-[110px] right-0 bg-[#ac4b47] rotate-[-30deg] origin-bottom-right"></div>
 );
 //hangman right leg 
 const right_leg = (
-  <div className=" w-[60px] h-[5px] absolute top-[175px] right-[-55px] bg-[#bdd1c5] rotate-[50deg] origin-bottom-left"></div>
+  <div className=" w-[60px] h-[5px] absolute top-[175px] right-[-55px] bg-[#ac4b47] rotate-[50deg] origin-bottom-left"></div>
 );
 //hangman left leg
 const left_leg = (
-  <div className=" w-[60px] h-[5px] absolute top-[175px] right-0 bg-[#bdd1c5] rotate-[-50deg] origin-bottom-right"></div>
+  <div className=" w-[60px] h-[5px] absolute top-[175px] right-0 bg-[#ac4b47] rotate-[-50deg] origin-bottom-right"></div>
 );
 
 // hangman-drawing array 

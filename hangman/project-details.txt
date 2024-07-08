@@ -9,3 +9,32 @@ draw the hangman body from array index 0 to <incorrectLettersLength. for example
 Q:Reasons for wrapping addGuessLetterFun with useCallback() hook--------
 When you define a function inside a functional component, like addGuessLetterFun, it is recreated on every render. If this function is passed down to child components or used in useEffect dependencies without useCallback, it could lead to unnecessary re-renders of those components or re-execution of effects.
 By using useCallback, React memoizes the function instance. React will reuse the memoized function as long as its dependencies (in this case, guessedLetters) have not changed. This optimization reduces unnecessary re-renders and improves performance, especially in components that rely on props or state changes.
+
+Q: every() function explanation----
+The every() method executes a function for each array element.
+The every() method returns true if the function returns true for all elements.
+The every() method returns false if the function returns false for one element.
+
+wordToGuess.split("").every(letter => guessedLetters.includes(letter))|
+Explanation: wordToGuess = Color
+["C","o","l","o","r"].every(guessedLetters.includes(letter))
+["C","o","l","o","r"].guessedLetters.includes(letter) {if all the characters in array is  present in the gussedLetters then only the every method will return true}
+
+
+Q1: Why use async/await in both api.tsx and Home.tsx?.............
+In api.tsx:
+
+The fetchRandomWord function is responsible for making an asynchronous HTTP request to the Wordnik API and returning the fetched word.
+Since HTTP requests are asynchronous operations, async/await is used here to ensure that the function waits for the API call to complete and the response to be received before proceeding with any further code execution.
+This encapsulates the logic for fetching data from an external API within a reusable function (fetchRandomWord).
+In Home.tsx (inside useEffect):
+
+The useEffect hook in React is used for handling side effects in functional components, such as fetching data, subscribing to services, etc.
+When useEffect is used with an asynchronous function (like getRandomWord in your example), async/await ensures that the function inside useEffect waits for the asynchronous operation (fetchRandomWord) to complete before updating the component state (setRandomWord).
+Without async/await, the setRandomWord function could potentially execute before the word is fetched, leading to incorrect or undefined state updates
+
+Q2: Empty dependency array causing useEffect to run twice....
+Next.js Development Mode Behavior: Next.js development mode can sometimes lead to double rendering or re-executing of effects. This behavior is related to Fast Refresh and how components are reloaded during development. This might make it seem like useEffect is running twice when it's actually just the effect re-executing due to component reloads.
+
+Dependencies Not Being Met: If fetchRandomWord or setRandomWord dependencies change between renders, useEffect might run again. Ensure that these dependencies remain stable if you want useEffect to run only once.
+Solution:useRef() to prevent this problem.

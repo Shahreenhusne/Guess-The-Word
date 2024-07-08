@@ -29,21 +29,23 @@ const keys =  [
   ]
 
 type KeyboardProps = {
-   activeLetter:string[]
-   inactiveLetters:string[]
-   addGuessLetter:(letter: string) => void
-}
+  activeLetter: string[];
+  inactiveLetters: string[];
+  addGuessLetter: (letter: string) => void;
+  disabled?: boolean
+};
 export default function Keyboard({
   activeLetter,
   inactiveLetters,
   addGuessLetter,
+  disabled= false                               
 }: KeyboardProps) {
   return (
     <>
       {/* grid-cols-13 is defined in tailwind.config */}
       <div className=" grid grid-cols-13 gap-2">
         {keys.map((key) => {
-          const isActive = activeLetter.includes(key)
+          const isActive = activeLetter.includes(key);
           const isInactive = inactiveLetters.includes(key);
           return (
             <button
@@ -52,7 +54,7 @@ export default function Keyboard({
               } ${isInactive ? "opacity-50" : ""}`}
               key={key}
               onClick={() => addGuessLetter(key)}
-              disabled= {isActive || isInactive}
+              disabled={isActive || isInactive || disabled}
             >
               {key}
             </button>
