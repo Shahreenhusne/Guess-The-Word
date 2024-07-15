@@ -20,7 +20,7 @@ const Loader = () => {
     <div className="w-screen h-screen flex justify-center items-center bg-gray-800">
       <div className="animate-fall transform scale-200 w-full h-full flex justify-center items-center">
         <div
-          className={`w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500  rounded-full transition-all duration-500 ${
+          className={`w-16 h-16 bg-gradient-to-r from-[#ac4b47] to-[#7e2a27]  rounded-full transition-all duration-500 ${
             animationState === "growing"
               ? "animate-bounce-initial w-32 h-16"
               : ""
